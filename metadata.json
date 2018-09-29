@@ -1,0 +1,45 @@
+{
+  "name": "valsr-vcommon",
+  "version": "1.0.0",
+  "author": "valsr",
+  "summary": "Common functions used by v* infrastructure/modules",
+  "license": "CC-BY-4.0",
+  "source": "https://github.com/valsr/puppet-vcommon",
+  "project_page": "https://github.com/valsr/puppet-vcommon",
+  "issues_url": "https://github.com/valsr/puppet-vcommon/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">=5.0.0 <6.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04"
+      ]
+    },
+    {
+      "operatingsystem": "LinuxMint",
+      "operatingsystemrelease": [
+        "19"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.7.0 < 6.0.0"
+    }
+  ],
+  "pdk-version": "1.7.0",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.7.0-0-g57412ed"
+}
