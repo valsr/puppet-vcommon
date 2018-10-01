@@ -7,6 +7,7 @@
   "source": "https://github.com/valsr/puppet-vcommon",
   "project_page": "https://github.com/valsr/puppet-vcommon",
   "issues_url": "https://github.com/valsr/puppet-vcommon/issues",
+  "data_provider": "hiera",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",

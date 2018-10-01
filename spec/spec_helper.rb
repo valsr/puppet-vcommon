@@ -16,6 +16,7 @@ default_facts = {
 
 default_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_facts.yml'))
 default_module_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_module_facts.yml'))
+hiera_config_path = File.expand_path(File.join(File.dirname(__FILE__), 'fixtures/hiera/hiera.yaml'))
 
 if File.exist?(default_facts_path) && File.readable?(default_facts_path)
   default_facts.merge!(YAML.safe_load(File.read(default_facts_path)))
@@ -26,11 +27,18 @@ if File.exist?(default_module_facts_path) && File.readable?(default_module_facts
 end
 
 RSpec.configure do |c|
+  c.hiera_config = hiera_config_path
   c.default_facts = default_facts
   c.before :each do
     # set to strictest setting for testing
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
+    Puppet::Util::Log.level = :warning
+    Puppet::Util::Log.newdestination(:console)
+  end
+
+  c.after(:suite) do
+    RSpec::Puppet::Coverage.report!(85)
   end
 end
 
