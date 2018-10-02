@@ -44,12 +44,12 @@ Puppet::Functions.create_function(:v_ensure_packages) do
   end
 
   def v_ensure_packages(package, options={})
-    softwarePolicy = call_function('vcommon::get_policy', 'software::install', 'latest', 'package::#{package}')
+    policy = call_function('vcommon::get_policy', 'software::install', 'package::#{package}', 'latest')
 
     if options
-      defaults = {'ensure' => softwarePolicy }.merge(options)
+      defaults = {'ensure' => policy }.merge(options)
     else
-      defaults = {'ensure' => softwarePolicy}
+      defaults = {'ensure' => policy}
     end
 
     call_function('ensure_resource', 'package', package, defaults)
@@ -63,7 +63,7 @@ Puppet::Functions.create_function(:v_ensure_packages) do
 
   def v_ensure_packages_a(packages, options={})
     packages.each do |package|
-      call_function('v_ensure_packages', name, options)
+      call_function('v_ensure_packages', package, options)
     end
   end
 end

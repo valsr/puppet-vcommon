@@ -5,8 +5,8 @@
 # @summary Searches hiera for given policy and returns its value
 #
 # @param policy   Policy key to search (note: key may optionally include the full policy name)
-# @param default  Default value to return if policy is not found (undef)
 # @param context  Context to use for checking overrides. If no context is provided, then overriding isn't preformed.
+# @param default  Default value to return if policy is not found (undef)
 # @return The policy to use
 #
 # @example basic usage
@@ -15,7 +15,7 @@
 #   $install3 = vcommon::get_policy('::software::install') # equivalent to above
 #
 # @example with default value
-#   $install = vcommon::get_policy('software::install', 'latest')
+#   $install = vcommon::get_policy('software::install', undef, 'latest')
 #
 # @example context override
 #   # Consider the following policy structure:
@@ -30,13 +30,13 @@
 #       package::alien: absent
 #   #
 #   # then the following will
-#   vcommong::get_policy('software::install', undef, 'package::vim') # will return 7.1-debian1
-#   vcommong::get_policy('software::install', undef, 'package::alien') # will return absent
-#   vcommong::get_policy('software::install', undef, 'package::gvim') # will return latest
+#   vcommong::get_policy('software::install', 'package::vim', undef) # will return 7.1-debian1
+#   vcommong::get_policy('software::install', 'package::alien', undef) # will return absent
+#   vcommong::get_policy('software::install', 'package::gvim', undef) # will return latest
 function vcommon::get_policy(
   String $policy,
-  Optional[Any] $default = undef,
   Optional[String] $context = undef,
+  Optional[Any] $default = undef,
   ) >> Optional[Any] {
 
   $policy_name = $policy ? {
