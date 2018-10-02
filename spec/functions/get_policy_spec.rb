@@ -17,7 +17,7 @@ describe 'vcommon::get_policy' do
       end
 
       context 'use provided default if it doesn\'t exist' do
-        it { is_expected.to run.with_params('policy::nonexisting', 'defaults').and_return ('defaults') }
+        it { is_expected.to run.with_params('policy::nonexisting', 'default').and_return ('default') }
       end
 
       context 'return undef if no default specified' do
@@ -26,6 +26,16 @@ describe 'vcommon::get_policy' do
 
       context 'return found value when default value provided' do
         it { is_expected.to run.with_params('policy::testing', 'default').and_return ('hiera') }
+      end
+
+      context 'policy overrides correctly' do
+        it { is_expected.to run.with_params('policy::testing', 'default', 'override::defaults').and_return ('overriden-hiera') }
+        it { is_expected.to run.with_params('::testing', 'default', 'override::defaults').and_return ('overriden-hiera') }
+        it { is_expected.to run.with_params('testing', 'default', 'override::defaults').and_return ('overriden-hiera') }
+      end
+
+      context 'policy doesn\'t override non-existing contexes' do
+        it { is_expected.to run.with_params('policy::testing', 'default', 'badcontext').and_return ('hiera') }
       end
     end
   end

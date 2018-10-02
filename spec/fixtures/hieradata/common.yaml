@@ -1,2 +1,7 @@
 ---
-policy::testing: 'hiera'
+policy:
+  testing:              'hiera'
+
+policy::override:
+  testing:
+    override::defaults: 'overriden-hiera'
