@@ -44,7 +44,8 @@ Puppet::Functions.create_function(:v_ensure_packages) do
   end
 
   def v_ensure_packages(package, options={})
-    softwarePolicy = call_function('lookup', 'policy::software::install',{'default_value'=>'latest'})
+    softwarePolicy = call_function('vcommon::get_policy', 'software::install', 'latest', 'package::#{package}')
+
     if options
       defaults = {'ensure' => softwarePolicy }.merge(options)
     else
@@ -55,26 +56,14 @@ Puppet::Functions.create_function(:v_ensure_packages) do
   end
 
   def v_ensure_packages_h(packages, options={})
-    softwarePolicy = call_function('lookup', 'policy::software::install',{'default_value'=>'latest'})
-    if options
-      defaults = {'ensure' => softwarePolicy }.merge(options)
-    else
-      defaults = {'ensure' => softwarePolicy}
+    packages.each do |name, opts|
+      call_function('v_ensure_packages', name, {}.merge(options).merge(opts)) # in case options in undef/nil
     end
-
-    call_function('ensure_resources', 'package', packages, defaults)
   end
 
   def v_ensure_packages_a(packages, options={})
-    softwarePolicy = call_function('lookup', 'policy::software::install',{'default_value'=>'latest'})
-    if options
-      defaults = {'ensure' => softwarePolicy }.merge(options)
-    else
-      defaults = {'ensure' => softwarePolicy}
+    packages.each do |package|
+      call_function('v_ensure_packages', name, options)
     end
-
-    packages.each { |package_name|
-      call_function('ensure_resource', 'package', package_name, defaults)
-    }
   end
 end
