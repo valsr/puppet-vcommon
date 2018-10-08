@@ -2,7 +2,7 @@
 
 [< back to readme](README.md)
 
-## 1.0.0 (2018-09-29)
+## 0.1.0 (2018-10-08)
 
 :sparkle: initial release
 
