@@ -1,9 +1,3 @@
-require 'simplecov'
-
-SimpleCov.start do
-  add_filter 'spec/fixtures'
-end
-
 require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
 
@@ -39,8 +33,6 @@ RSpec.configure do |c|
     # set to strictest setting for testing
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
-    Puppet::Util::Log.level = :warning
-    Puppet::Util::Log.newdestination(:console)
   end
 
   c.after(:suite) do

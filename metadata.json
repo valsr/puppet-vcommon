@@ -7,13 +7,13 @@
   "source": "https://github.com/valsr/puppet-vcommon",
   "project_page": "https://github.com/valsr/puppet-vcommon",
   "issues_url": "https://github.com/valsr/puppet-vcommon/issues",
-  "data_provider": "hiera",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
       "version_requirement": ">=5.0.0 <6.0.0"
     }
   ],
+  "data_provider": "hiera",
   "operatingsystem_support": [
     {
       "operatingsystem": "Debian",
@@ -40,7 +40,7 @@
       "version_requirement": ">= 4.7.0 < 6.0.0"
     }
   ],
-  "pdk-version": "1.7.0",
+  "pdk-version": "1.7.1",
   "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
-  "template-ref": "1.7.0-0-g57412ed"
+  "template-ref": "1.7.1-0-g810b982"
 }
