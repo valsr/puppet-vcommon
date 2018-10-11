@@ -6,6 +6,7 @@ describe 'vcommon' do
       let(:facts) { os_facts }
 
       it { is_expected.to compile }
+      it { is_expected.to contain_class('vcommon') }
     end
   end
 end
