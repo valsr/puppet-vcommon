@@ -1,6 +1,6 @@
 {
   "name": "valsr-vcommon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "valsr",
   "summary": "Common functions used by v* infrastructure/modules",
   "license": "CC-BY-4.0",
