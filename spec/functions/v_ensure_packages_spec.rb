@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'v_ensure_packages' do
@@ -12,18 +14,18 @@ describe 'v_ensure_packages' do
         }
 
         it 'merges options correctly' do
-          is_expected.to run.with_params('foo', { 'provider' => 'defaults', 'vendor' => 'defaults'})
+          is_expected.to run.with_params('foo', 'provider' => 'defaults', 'vendor' => 'defaults')
           expect(catalogue).to contain_package('foo').with(
             'provider' => 'defaults',
-            'vendor' => 'defaults'
+            'vendor' => 'defaults',
           )
         end
 
         it 'doesn\'t override provided defaults' do
-          is_expected.to run.with_params('foo', {'ensure' => 'defaults', 'provider' => 'defaults'})
+          is_expected.to run.with_params('foo', 'ensure' => 'defaults', 'provider' => 'defaults')
           expect(catalogue).to contain_package('foo').with(
             'ensure' => 'defaults',
-            'provider' => 'defaults'
+            'provider' => 'defaults',
           )
         end
       end
@@ -36,62 +38,66 @@ describe 'v_ensure_packages' do
         }
 
         it 'merges options correctly' do
-          is_expected.to run.with_params(['foo', 'bar'], { 'provider' => 'defaults', 'vendor' => 'defaults'})
+          is_expected.to run.with_params(['foo', 'bar'], 'provider' => 'defaults', 'vendor' => 'defaults')
           expect(catalogue).to contain_package('foo').with(
             'provider' => 'defaults',
-            'vendor' => 'defaults'
+            'vendor' => 'defaults',
           )
           expect(catalogue).to contain_package('bar').with(
             'provider' => 'defaults',
-            'vendor' => 'defaults'
+            'vendor' => 'defaults',
           )
         end
 
         it 'doesn\'t override provided defaults' do
-          is_expected.to run.with_params(['foo', 'bar'], {'ensure' => 'defaults', 'provider' => 'defaults'})
+          is_expected.to run.with_params(['foo', 'bar'], 'ensure' => 'defaults', 'provider' => 'defaults')
           expect(catalogue).to contain_package('foo').with(
             'ensure' => 'defaults',
-            'provider' => 'defaults'
+            'provider' => 'defaults',
           )
 
           expect(catalogue).to contain_package('bar').with(
             'ensure' => 'defaults',
-            'provider' => 'defaults'
+            'provider' => 'defaults',
           )
         end
       end
 
       context 'using hash of packages' do
         it {
-          is_expected.to run.with_params({'foo' => {}, 'bar' => {}})
+          is_expected.to run.with_params('foo' => {}, 'bar' => {})
           expect(catalogue).to contain_package('foo').with_ensure('latest')
           expect(catalogue).to contain_package('bar').with_ensure('latest')
         }
 
         it 'doesn\'t override package defaults' do
-          is_expected.to run.with_params({'foo' => {'ensure' => 'package', 'provider' => 'package'}, 'bar' => { 'provider' => 'package' }})
+          is_expected.to run.with_params(
+            'foo' => { 'ensure' => 'package', 'provider' => 'package' }, 'bar' => { 'provider' => 'package' },
+          )
           expect(catalogue).to contain_package('foo').with('ensure' => 'package', 'provider' => 'package')
           expect(catalogue).to contain_package('bar').with('ensure' => 'latest', 'provider' => 'package')
         end
 
         it 'merges options correctly' do
-          is_expected.to run.with_params({
+          is_expected.to run.with_params(
+            {
               'foo' => { 'ensure' => 'package', 'provider' => 'package' },
-              'bar' => { 'provider' => 'package', 'vendor' => 'package' }
+              'bar' => { 'provider' => 'package', 'vendor' => 'package' },
             },
-            { 'vendor' => 'defaults', 'source' => 'defaults' })
+            'vendor' => 'defaults', 'source' => 'defaults',
+          )
 
           expect(catalogue).to contain_package('foo').with(
             'ensure' => 'package',
             'provider' => 'package',
             'vendor' => 'defaults',
-            'source' => 'defaults'
+            'source' => 'defaults',
           )
           expect(catalogue).to contain_package('bar').with(
             'ensure' => 'latest',
             'provider' => 'package',
             'vendor' => 'package',
-            'source' => 'defaults'
+            'source' => 'defaults',
           )
         end
       end

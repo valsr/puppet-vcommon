@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 # Ensures that packages are installed depending on lookup policy (key policy::software::install).
-# This function behaves like ensure_packages with the addition that it is controlled by the policy key to default the ensure parameter.
+# This function behaves like ensure_packages with the addition that it is controlled by the policy key to default the
+# ensure parameter.
 Puppet::Functions.create_function(:v_ensure_packages) do
   # @param package Package name to install
   # @param options Package hash options (see puppet package)
@@ -43,25 +46,25 @@ Puppet::Functions.create_function(:v_ensure_packages) do
     optional_param 'Hash[String,Any]', :options
   end
 
-  def v_ensure_packages(package, options={})
-    policy = call_function('vcommon::get_policy', 'software::install', 'package::#{package}', 'latest')
+  def v_ensure_packages(package, options = {})
+    policy = call_function('vcommon::get_policy', 'software::install', "package::#{package}", 'latest')
 
-    if options
-      defaults = {'ensure' => policy }.merge(options)
-    else
-      defaults = {'ensure' => policy}
-    end
+    defaults = if options
+                 { 'ensure' => policy }.merge(options)
+               else
+                 { 'ensure' => policy }
+               end
 
     call_function('ensure_resource', 'package', package, defaults)
   end
 
-  def v_ensure_packages_h(packages, options={})
+  def v_ensure_packages_h(packages, options = {})
     packages.each do |name, opts|
       call_function('v_ensure_packages', name, {}.merge(options).merge(opts)) # in case options in undef/nil
     end
   end
 
-  def v_ensure_packages_a(packages, options={})
+  def v_ensure_packages_a(packages, options = {})
     packages.each do |package|
       call_function('v_ensure_packages', package, options)
     end
