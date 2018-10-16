@@ -4,6 +4,7 @@
 
 ## 0.1.1 (2018-10-11)
 
+:hammer: fixed rubocop issues with atom
 :hammer: updated project metadata and build ci
 :hammer: updated pdk files to 1.7.1
 
