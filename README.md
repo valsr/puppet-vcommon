@@ -85,6 +85,56 @@ You can also specify a hash to apply to all packages to override settings. Note 
   }, {provider => 'rpm' })
 ```
 
+### vcommon::policy
+
+Returns the policy under given policy name. This function works a bit like a registry using hiera to figure out the
+policy and return its value. Policies are stored under the hiera **policy** key as dictionary. Note that here is no
+data type checking.
+
+```yaml
+policy:
+  my::dummy::policy: "install"
+```
+
+```puppet
+vcommon::policy('my::dummy::policy') # will return install
+```
+
+An optional (second) parameter may be provided when checking if a policy is overridden in specific case. A classic
+example is having a policy for installing all software (i.e. latest), but a specific override when installing a specific
+package. The second parameter is used to specify the context (if set to undef then it will be ignored). This makes a
+check at the **policy::overrride** dictionary. Note that a policy may have multiple overrides and for that reason the
+override is a dictionary. If context is not found then the policy value will be return.
+
+```yaml
+policy:
+  my::dummy::policy: "install"
+
+policy::override:
+  my::dummy::policy:
+    context: "default"
+    context::another: "test"
+    some::other::value: "testing"
+```
+
+```puppet
+vcommon::policy('my::dummy::policy') # will return install
+vcommon::policy('my::dummy::policy', 'context') # will return default
+vcommon::policy('my::dummy::policy', 'context::another') # will return test
+vcommon::policy('my::dummy::policy', 'notfound') # will return install
+```
+
+The last parameter provides a return value if a policy or an override is not found. By default undef is returned.
+
+```yaml
+policy:
+  my::dummy::policy: "install"
+```
+
+```puppet
+vcommon::policy('my::none::policy', undef, 'test') # will return test
+```
+
 ## Limitations
 
 Currently only works/tested on:
