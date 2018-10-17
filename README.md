@@ -3,19 +3,28 @@
 #### Table of Contents
 
 1. [Description](#description)
-2. [Setup - The basics of getting started with vcommon](#setup)
+2. [Build Status](#build-status)
+3. [Setup - The basics of getting started with vcommon](#setup)
    - [What vcommon affects](#what-vcommon-affects)
    - [Setup requirements](#setup-requirements)
    - [Beginning with vcommon](#beginning-with-vcommon)
-3. [Usage - Configuration options and additional functionality](#usage)
-4. [Limitations - OS compatibility, etc.](#limitations)
-5. [Development - Guide for contributing to the module](#development)
+4. [Usage - Configuration options and additional functionality](#usage)
+5. [Limitations - OS compatibility, etc.](#limitations)
+6. [Development - Guide for contributing to the module](#development)
 
 ## Description
 
 Common functions/codes used throughout the entire v\* module infrastructures. Functions/code here is of the small kind (i.e. solves a very specific few lines of code type of functions) that constantly pop up during development (i.e. overwriting for the printf function).
 
 Note functions are entirely self-contained and don't depend on any non-forge modules.
+
+## Build Status
+
+| Branch      | [Travis-CI](https://travis-ci.org/valsr/puppet-vcommon/branches)                     |
+| ----------- | ------------------------------------------------------------------------------------ |
+| stable      | ![latest stable status](https://travis-ci.org/valsr/puppet-vcommon.svg?branch=0.1.1) |
+| master      | ![master build status](https://travis-ci.org/valsr/puppet-vcommon.svg?branch=master) |
+| development | N/A                                                                                  |
 
 ## Setup
 
