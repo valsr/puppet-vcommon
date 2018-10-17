@@ -82,7 +82,7 @@ describe 'v_ensure_packages' do
           is_expected.to run.with_params(
             {
               'foo' => { 'ensure' => 'package', 'provider' => 'package' },
-              'bar' => { 'provider' => 'package', 'vendor' => 'package' },
+              'bar' => { 'provider' => 'package', 'vendor' => 'package' }
             },
             'vendor' => 'defaults', 'source' => 'defaults',
           )
