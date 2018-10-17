@@ -20,11 +20,11 @@ Note functions are entirely self-contained and don't depend on any non-forge mod
 
 ## Build Status
 
-| Branch      | [Travis-CI](https://travis-ci.org/valsr/puppet-vcommon/branches)                     |
-| ----------- | ------------------------------------------------------------------------------------ |
-| stable      | ![latest stable status](https://travis-ci.org/valsr/puppet-vcommon.svg?branch=0.1.1) |
-| master      | ![master build status](https://travis-ci.org/valsr/puppet-vcommon.svg?branch=master) |
-| development | N/A                                                                                  |
+| Branch      | [Travis-CI](https://travis-ci.org/valsr/puppet-vcommon/branches)                      |
+| ----------- | ------------------------------------------------------------------------------------- |
+| stable      | ![latest stable status](https://travis-ci.org/valsr/puppet-vcommon.svg?branch=stable) |
+| master      | ![master build status](https://travis-ci.org/valsr/puppet-vcommon.svg?branch=master)  |
+| development | N/A                                                                                   |
 
 ## Setup
 
