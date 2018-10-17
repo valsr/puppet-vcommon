@@ -1,5 +1,4 @@
-require 'simplecov'
-SimpleCov.start
+# frozen_string_literal: true
 
 require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
@@ -14,7 +13,7 @@ include RspecPuppetFacts
 
 default_facts = {
   puppetversion: Puppet.version,
-  facterversion: Facter.version,
+  facterversion: Facter.version
 }
 
 default_facts_path = File.expand_path(File.join(File.dirname(__FILE__), 'default_facts.yml'))
@@ -36,12 +35,10 @@ RSpec.configure do |c|
     # set to strictest setting for testing
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
-    Puppet::Util::Log.level = :warning
-    Puppet::Util::Log.newdestination(:console)
   end
 
   c.after(:suite) do
-    RSpec::Puppet::Coverage.report!(85)
+    RSpec::Puppet::Coverage.report!
   end
 end
 
