@@ -47,7 +47,7 @@ Puppet::Functions.create_function(:v_ensure_packages) do
   end
 
   def v_ensure_packages(package, options = {})
-    policy = call_function('vcommon::get_policy', 'software::install', "package::#{package}", 'latest')
+    policy = call_function('vcommon::policy', 'software::install', "package::#{package}", 'latest')
 
     defaults = if options
                  { 'ensure' => policy }.merge(options)

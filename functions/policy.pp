@@ -10,12 +10,12 @@
 # @return The policy to use
 #
 # @example basic usage
-#   $install = vcommon::get_policy('software::install')
-#   $install2 = vcommon::get_policy('policy::software::install') # equivalent to above
-#   $install3 = vcommon::get_policy('::software::install') # equivalent to above
+#   $install = vcommon::policy('software::install')
+#   $install2 = vcommon::policy('policy::software::install') # equivalent to above
+#   $install3 = vcommon::policy('::software::install') # equivalent to above
 #
 # @example with default value
-#   $install = vcommon::get_policy('software::install', undef, 'latest')
+#   $install = vcommon::policy('software::install', undef, 'latest')
 #
 # @example context override
 #   # Consider the following policy structure:
@@ -30,10 +30,10 @@
 #       package::alien: absent
 #   #
 #   # then the following will
-#   vcommong::get_policy('software::install', 'package::vim', undef) # will return 7.1-debian1
-#   vcommong::get_policy('software::install', 'package::alien', undef) # will return absent
-#   vcommong::get_policy('software::install', 'package::gvim', undef) # will return latest
-function vcommon::get_policy(
+#   vcommong::policy('software::install', 'package::vim', undef) # will return 7.1-debian1
+#   vcommong::policy('software::install', 'package::alien', undef) # will return absent
+#   vcommong::policy('software::install', 'package::gvim', undef) # will return latest
+function vcommon::policy(
   String $policy,
   Optional[String] $context = undef,
   Optional[Any] $default = undef,
