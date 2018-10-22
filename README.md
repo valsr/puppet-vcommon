@@ -11,6 +11,7 @@
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
+7. [Release Notes](#release-notes)
 
 ## Description
 
@@ -145,10 +146,8 @@ Currently only works/tested on:
 
 ## Development
 
-In most cases follow puppet standards/guidelines. In short:
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
-- Make sure code is style according puppet [coding styles](https://puppet.com/docs/puppet/5.5/style_guide.html)
-- Each new addition should have a unit test covering most of its functionality (aim for 85% or more)
-- Make sure everything is properly documented (what it does, how it does it, parameters) and has plenty of examples
+## Release Notes
 
-If so, submit a pull request and if it builds and runs well it will be merged (eventually).
+See [CHANGELOG.md](CHANGELOG.md)
