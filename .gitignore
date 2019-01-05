@@ -1,24 +1,30 @@
-.git/
+# Temp files
 .*.sw[op]
-.metadata
-.yardoc
-.yardwarns
-*.iml
+/tmp/
+
+# 3rd party
 /.bundle/
 /.idea/
+/vendor/
 /.vagrant/
-/coverage/
-/bin/
+
+# Docs
+.yardoc
+.yardwarns
 /doc/
-/Gemfile.local
-/Gemfile.lock
+
+# Test related
 /junit/
-/log/
-/pkg/
 /spec/fixtures/manifests/
 /spec/fixtures/modules/
-/tmp/
-/vendor/
 /convert_report.txt
+/coverage/
+
+# misc
+.metadata
+*.iml
+/bin/
+/log/
+/pkg/
 /update_report.txt
 .DS_Store

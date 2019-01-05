@@ -29,6 +29,10 @@ group :development do
   gem "puppet-catalog_rspec", require: false
 end
 
+group :test do
+  gem "mdl"
+end
+
 group :build do
   gem 'puppet-module', require: false
 end

@@ -6,10 +6,10 @@ should help you at least a little bit in getting there, you might need to add so
 #### TOC
 
 1. [Getting Started](#getting-started)
-2. [Making Changes](#making-changes)
-3. [Testing Changes](#testing-changes)
-4. [Submitting Changes](#submitting-changes)
-5. [Get Help](#get-help)
+1. [Making Changes](#making-changes)
+1. [Testing Changes](#testing-changes)
+1. [Submitting Changes](#submitting-changes)
+1. [Get Help](#get-help)
 
 ## Getting Started
 
@@ -28,6 +28,7 @@ you fork the repository you can begin making your changes.
 - Make commits of logical and atomic units.
 - Make sure your commit messages are in the proper format.
 - Make sure you have added the necessary tests for your changes.
+- Make sure you have updated relevant documentation.
 
 Follow the project standards - at the moment this are as follow:
 
@@ -50,15 +51,15 @@ except trivial ones need to be tested and tested well. There are three metrics y
 to accept your changes and these are:
 
 1. your tests run cleanly (no issues)
-2. all other tests run cleanly (no issues)
-3. you have sufficient test coverage on your changes (around 80% or higher)
+1. all other tests run cleanly (no issues)
+1. you have sufficient test coverage on your changes (around 80% or higher)
 
 To test code we are using the puppet standard unit testing procedures as outlined in the
 [Puppet Development Kit (PDK)](https://puppet.com/docs/pdk/1.x/pdk.html). You will need to setup your testing
 infrastructure:
 
 1. installing the [PDK](https://puppet.com/docs/pdk/1.x/pdk_install.html)
-2. run `bundle install` to install other gems
+1. run `bundle install --path /vendor/bundle` to install other gems
 
 For information on how to test your code refer to the PDK documentation as well as the
 [puppet-rspec](https://rspec-puppet.com/) module documentation.
@@ -68,21 +69,21 @@ For information on how to test your code refer to the PDK documentation as well 
 Simple issue at the project root
 
 ```sh
-$bundle exec rake spec
+bundle exec rake spec
 ```
 
 This will do two things:
 
 1. execute all unit tests found under spec
-2. generate coverage report under coverage
+1. generate coverage report under coverage
 
 ## Submitting Changes
 
 Once your changes are ready to go you will need to do the following:
 
 1. rebase your changes on top of the most recent version of the branch you want to merge to
-2. create a pull request and follow the request template
-3. once your changes have been reviewed you might need to perform corrections to them, re-run tests and update the pull
+1. create a pull request and follow the request template
+1. once your changes have been reviewed you might need to perform corrections to them, re-run tests and update the pull
    request
 
 ## Get Help

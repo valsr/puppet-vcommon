@@ -2,6 +2,14 @@
 
 [< back to readme](README.md)
 
+## 0.2.2 (2019-01-04)
+
+> :exclamation: This is a pre-release version
+
+:star2: Added documentation linting
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 0.2.1 (2018-10-27)
 
 > :exclamation: This is a pre-release version
