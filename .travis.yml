@@ -1,6 +1,6 @@
 ---
 sudo:             false
-dist:             trusty
+dist:             bionic
 language:         ruby
 cache:            bundler
 before_install:
@@ -22,6 +22,8 @@ matrix:
   include:
     -
       env:        CHECK="syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop"
+    -
+      env:        CHECK="mdl ."
     -
       env:        CHECK=parallel_spec
     -
