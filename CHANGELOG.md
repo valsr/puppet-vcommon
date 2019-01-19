@@ -2,6 +2,14 @@
 
 [< back to readme](README.md)
 
+## 0.2.3 (2019-01-18)
+
+> :exclamation: This is a pre-release version
+
+:hammer: updated build system
+
+**Release Manager**: valsr <mailto:valsr@valsr.com>
+
 ## 0.2.2 (2019-01-04)
 
 > :exclamation: This is a pre-release version
