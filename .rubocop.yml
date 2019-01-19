@@ -2,7 +2,6 @@
 require:                           rubocop-rspec
 AllCops:
   DisplayCopNames:                 true
-  TargetRubyVersion:               '2.5'
   Include:
   - "./**/*.rb"
   Exclude:
@@ -12,13 +11,14 @@ AllCops:
   - "**/Rakefile"
   - pkg/**/*
   - spec/fixtures/**/*
+  - spec/spec_helper.rb
   - vendor/**/*
   - "**/Puppetfile"
   - "**/Vagrantfile"
   - "**/Guardfile"
 Metrics/LineLength:
   Description:                     People have wide screens, use them.
-  Max:                             200
+  Max:                             120
 GetText/DecorateString:
   Description:                     We don't want to decorate test output.
   Exclude:
